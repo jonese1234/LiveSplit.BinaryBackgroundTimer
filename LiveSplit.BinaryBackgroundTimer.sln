@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveSplit.Timer", "LiveSplit.Timer.csproj", "{B9045699-7AC0-4B1C-B6A7-0EB4A93C48D7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release Candidate|Any CPU = Release Candidate|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9045699-7AC0-4B1C-B6A7-0EB4A93C48D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9045699-7AC0-4B1C-B6A7-0EB4A93C48D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9045699-7AC0-4B1C-B6A7-0EB4A93C48D7}.Release Candidate|Any CPU.ActiveCfg = Release Candidate|Any CPU
+		{B9045699-7AC0-4B1C-B6A7-0EB4A93C48D7}.Release Candidate|Any CPU.Build.0 = Release Candidate|Any CPU
+		{B9045699-7AC0-4B1C-B6A7-0EB4A93C48D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9045699-7AC0-4B1C-B6A7-0EB4A93C48D7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
