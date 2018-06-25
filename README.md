@@ -8,5 +8,8 @@ Does not work with Game timer will fix soon.
 # AGDQ Timer
 ![AGDQ TIMER](https://i.imgur.com/JJvlKXT.png)
 
-# Example 
-https://streamable.com/0eyz5
+# Examples
+  AGDQ 2018 Example
+  https://streamable.com/0eyz5
+  SGDQ 2018 Example
+  https://streamable.com/6uhrl
