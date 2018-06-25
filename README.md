@@ -9,4 +9,4 @@ Does not work with Game timer will fix soon.
 ![AGDQ TIMER](https://i.imgur.com/JJvlKXT.png)
 
 # Example 
-https://streamable.com/iu6ir
+https://streamable.com/0eyz5
