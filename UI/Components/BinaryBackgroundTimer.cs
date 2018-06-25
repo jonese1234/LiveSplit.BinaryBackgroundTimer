@@ -81,7 +81,7 @@ namespace LiveSplit.UI.Components
         }
 
         public static void DrawBackground(Graphics g, LiveSplitState state, Color timerColor, Color settingsColor1, Color settingsColor2,
-            float width, float height, DeltasGradientType gradientType, Color tickColor1, Color tickColor2)
+            float width, float height, DeltasGradientType gradientType, Color tickColor1, Color tickColor2, String timeMethod)
         {
             var background1 = settingsColor1;
             var background2 = settingsColor2;
@@ -101,7 +101,7 @@ namespace LiveSplit.UI.Components
                 }
             }
             List<int> test = new List<int>();
-            test = numCalculator(state);
+            test = numCalculator(state, timeMethod);
 
             var tickBrush = new SolidBrush(tickColor);
             var backgroundTickBrush = new SolidBrush(backgroundTickColor);
@@ -150,12 +150,27 @@ namespace LiveSplit.UI.Components
             }
         }
 
-        private static List<int> numCalculator(LiveSplitState state)
+        private static List<int> numCalculator(LiveSplitState state, String timeMethod)
         {
-            var mill = state.CurrentTime[state.CurrentTimingMethod].Value.Milliseconds;
-            var seconds = state.CurrentTime[state.CurrentTimingMethod].Value.Seconds;
-            var mins = state.CurrentTime[state.CurrentTimingMethod].Value.Minutes;
-            var hour = state.CurrentTime[state.CurrentTimingMethod].Value.Hours;
+
+            var timingMethod = state.CurrentTimingMethod;
+            if (timeMethod == "Real Time")
+                timingMethod = TimingMethod.RealTime;
+            else if (timeMethod == "Game Time")
+                timingMethod = TimingMethod.GameTime;
+
+            var timeValue = state.CurrentTime[timingMethod];
+
+            if (timeValue == null && timingMethod == TimingMethod.GameTime)
+                timeValue = state.CurrentTime[TimingMethod.RealTime];
+
+
+            var test = timeValue.Value.Seconds;
+
+            var mill = timeValue.Value.Milliseconds;
+            var seconds = timeValue.Value.Seconds;
+            var mins = timeValue.Value.Minutes;
+            var hour = timeValue.Value.Hours;
 
             int printMil = Math.Abs(mill);
             while (printMil >= 10)
@@ -229,7 +244,7 @@ namespace LiveSplit.UI.Components
 
         private void DrawGeneral(Graphics g, LiveSplitState state, float width, float height)
         {
-            DrawBackground(g, state, TimerColor, Settings.BackgroundColor, Settings.BackgroundColor2, width, height, Settings.BackgroundGradient, Settings.tickColor, Settings.backgroundTickColor);
+            DrawBackground(g, state, TimerColor, Settings.BackgroundColor, Settings.BackgroundColor2, width, height, Settings.BackgroundGradient, Settings.tickColor, Settings.backgroundTickColor, Settings.TimingMethod);
 
             if (state.LayoutSettings.TimerFont != TimerFont || Settings.DecimalsSize != PreviousDecimalsSize)
             {

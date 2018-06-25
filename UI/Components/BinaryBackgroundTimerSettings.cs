@@ -74,7 +74,7 @@ namespace LiveSplit.UI.Components
             ShowGradient = true;
             BackgroundColor = Color.Transparent;
             BackgroundColor2 = Color.Transparent;
-            tickColor = Color.AliceBlue;
+            tickColor = Color.DodgerBlue;
             backgroundTickColor = Color.Transparent;
             BackgroundGradient = DeltasGradientType.Plain;
             CenterTimer = false;
