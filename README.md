@@ -1,15 +1,24 @@
 # LiveSplit.BinaryBackgroundTimer
 A Binary Background Timer Like in AGDQ/SGDQ 2018
 
-# This is a Beta Release!!!
+This Release is the basic initial release version. 
 
-Does not work with Game timer will fix soon.
+* Binary Style Background
+* Real Time & Game Time
+* Choose Colors
 
-# AGDQ Timer
-![AGDQ TIMER](https://i.imgur.com/JJvlKXT.png)
+# Default Look
+![Default Look](https://i.imgur.com/zZT0yrl.png)
 
 # Examples
   AGDQ 2018 Example:
   https://streamable.com/0eyz5  
   SGDQ 2018 Example:
   https://streamable.com/6uhrl  
+
+## How to Install
+
+1. Download the LiveSplit.BinaryBackgroundTimer.dll
+2. Go To Livesplit Folder
+3. Place the DLL in the Components Folder
+4. Add the timer from the layout settings in livesplit
