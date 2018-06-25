@@ -81,13 +81,13 @@ namespace LiveSplit.UI.Components
         }
 
         public static void DrawBackground(Graphics g, LiveSplitState state, Color timerColor, Color settingsColor1, Color settingsColor2,
-            float width, float height, DeltasGradientType gradientType)
+            float width, float height, DeltasGradientType gradientType, Color tickColor1, Color tickColor2)
         {
             var background1 = settingsColor1;
             var background2 = settingsColor2;
             RectangleF[] clockData = new RectangleF[24];
-            var mainColour = Brushes.OrangeRed;
-            var secondColour = Brushes.Green;
+            var tickColor = tickColor1;
+            var backgroundTickColor = tickColor2;
 
             // Width / by 6
             // Height / by 4m
@@ -103,9 +103,13 @@ namespace LiveSplit.UI.Components
             List<int> test = new List<int>();
             test = numCalculator(state);
 
+            var tickBrush = new SolidBrush(tickColor);
+            var backgroundTickBrush = new SolidBrush(backgroundTickColor);
+            g.FillRectangles(backgroundTickBrush, clockData);
+
             foreach (int i in test)
             {
-                g.FillRectangle(mainColour, clockData[i]);
+                g.FillRectangle(tickBrush, clockData[i]);
             }
 
             if (gradientType == DeltasGradientType.PlainWithDeltaColor
@@ -142,7 +146,7 @@ namespace LiveSplit.UI.Components
                             ? background1
                             : background2);
                 g.FillRectangle(gradientBrush, 0, 0, width, height);
-                g.FillRectangles(Brushes.Green, clockData);
+                //g.FillRectangles(Brushes.Green, clockData);
             }
         }
 
@@ -225,7 +229,7 @@ namespace LiveSplit.UI.Components
 
         private void DrawGeneral(Graphics g, LiveSplitState state, float width, float height)
         {
-            DrawBackground(g, state, TimerColor, Settings.BackgroundColor, Settings.BackgroundColor2, width, height, Settings.BackgroundGradient);
+            DrawBackground(g, state, TimerColor, Settings.BackgroundColor, Settings.BackgroundColor2, width, height, Settings.BackgroundGradient, Settings.tickColor, Settings.backgroundTickColor);
 
             if (state.LayoutSettings.TimerFont != TimerFont || Settings.DecimalsSize != PreviousDecimalsSize)
             {

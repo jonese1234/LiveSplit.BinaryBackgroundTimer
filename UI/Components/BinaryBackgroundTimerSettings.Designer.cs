@@ -49,6 +49,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.trkDecimalsSize = new System.Windows.Forms.TrackBar();
             this.cmbGradientType = new System.Windows.Forms.ComboBox();
+            this.TickLable = new System.Windows.Forms.Label();
+            this.backgroundTickColorBtn = new System.Windows.Forms.Button();
+            this.tickColorBtn = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trkSize)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -64,6 +67,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.TickLable, 0, 8);
             this.tableLayoutPanel1.Controls.Add(this.cmbAccuracy, 4, 6);
             this.tableLayoutPanel1.Controls.Add(this.cmbTimingMethod, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.trkSize, 1, 2);
@@ -80,10 +84,12 @@
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.trkDecimalsSize, 1, 7);
             this.tableLayoutPanel1.Controls.Add(this.cmbGradientType, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.backgroundTickColorBtn, 1, 8);
+            this.tableLayoutPanel1.Controls.Add(this.tickColorBtn, 1, 8);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(7, 7);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 8;
+            this.tableLayoutPanel1.RowCount = 9;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
@@ -93,7 +99,8 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(462, 287);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(462, 314);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // cmbAccuracy
@@ -330,7 +337,7 @@
             this.trkDecimalsSize.Maximum = 50;
             this.trkDecimalsSize.Minimum = 10;
             this.trkDecimalsSize.Name = "trkDecimalsSize";
-            this.trkDecimalsSize.Size = new System.Drawing.Size(299, 24);
+            this.trkDecimalsSize.Size = new System.Drawing.Size(299, 23);
             this.trkDecimalsSize.TabIndex = 9;
             this.trkDecimalsSize.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trkDecimalsSize.Value = 10;
@@ -354,14 +361,50 @@
             this.cmbGradientType.TabIndex = 2;
             this.cmbGradientType.SelectedIndexChanged += new System.EventHandler(this.cmbGradientType_SelectedIndexChanged);
             // 
-            // TimerSettings
+            // TickLable
+            // 
+            this.TickLable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.TickLable.AutoSize = true;
+            this.TickLable.Location = new System.Drawing.Point(3, 293);
+            this.TickLable.Name = "TickLable";
+            this.TickLable.Size = new System.Drawing.Size(151, 13);
+            this.TickLable.TabIndex = 46;
+            this.TickLable.Text = "Tick Colors: ";
+            // 
+            // backgroundTickColorBtn
+            // 
+            this.backgroundTickColorBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.backgroundTickColorBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.backgroundTickColorBtn.Location = new System.Drawing.Point(189, 289);
+            this.backgroundTickColorBtn.Name = "backgroundTickColorBtn";
+            this.backgroundTickColorBtn.Size = new System.Drawing.Size(23, 22);
+            this.backgroundTickColorBtn.TabIndex = 47;
+            this.backgroundTickColorBtn.UseVisualStyleBackColor = false;
+            this.backgroundTickColorBtn.Click += new System.EventHandler(this.ColorButtonClick);
+            // 
+            // tickColorBtn
+            // 
+            this.tickColorBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tickColorBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.tickColorBtn.Location = new System.Drawing.Point(160, 289);
+            this.tickColorBtn.Name = "tickColorBtn";
+            this.tickColorBtn.Size = new System.Drawing.Size(23, 22);
+            this.tickColorBtn.TabIndex = 48;
+            this.tickColorBtn.UseVisualStyleBackColor = false;
+            this.tickColorBtn.Click += new System.EventHandler(this.ColorButtonClick);
+            // 
+            // BinaryBackgroundTimerSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "TimerSettings";
+            this.Name = "BinaryBackgroundTimerSettings";
             this.Padding = new System.Windows.Forms.Padding(7);
-            this.Size = new System.Drawing.Size(476, 301);
+            this.Size = new System.Drawing.Size(476, 328);
             this.Load += new System.EventHandler(this.TimerSettings_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -397,5 +440,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TrackBar trkDecimalsSize;
         private System.Windows.Forms.ComboBox cmbAccuracy;
+        private System.Windows.Forms.Label TickLable;
+        private System.Windows.Forms.Button backgroundTickColorBtn;
+        private System.Windows.Forms.Button tickColorBtn;
     }
 }

@@ -50,6 +50,10 @@ namespace LiveSplit.UI.Components
 
         public Color BackgroundColor { get; set; }
         public Color BackgroundColor2 { get; set; }
+
+        public Color tickColor { get; set; }
+        public Color backgroundTickColor { get; set; }
+
         public DeltasGradientType BackgroundGradient { get; set; }
         public string GradientString
         {
@@ -70,6 +74,8 @@ namespace LiveSplit.UI.Components
             ShowGradient = true;
             BackgroundColor = Color.Transparent;
             BackgroundColor2 = Color.Transparent;
+            tickColor = Color.AliceBlue;
+            backgroundTickColor = Color.Transparent;
             BackgroundGradient = DeltasGradientType.Plain;
             CenterTimer = false;
             TimingMethod = "Current Timing Method";
@@ -81,6 +87,8 @@ namespace LiveSplit.UI.Components
             cmbGradientType.DataBindings.Add("SelectedItem", this, "GradientString", false, DataSourceUpdateMode.OnPropertyChanged);
             btnColor1.DataBindings.Add("BackColor", this, "BackgroundColor", false, DataSourceUpdateMode.OnPropertyChanged);
             btnColor2.DataBindings.Add("BackColor", this, "BackgroundColor2", false, DataSourceUpdateMode.OnPropertyChanged);
+            tickColorBtn.DataBindings.Add("BackColor", this, "tickColor", false, DataSourceUpdateMode.OnPropertyChanged);
+            backgroundTickColorBtn.DataBindings.Add("BackColor", this, "backgroundTickColor", false, DataSourceUpdateMode.OnPropertyChanged);
             chkCenterTimer.DataBindings.Add("Checked", this, "CenterTimer", false, DataSourceUpdateMode.OnPropertyChanged);
             cmbTimingMethod.DataBindings.Add("SelectedItem", this, "TimingMethod", false, DataSourceUpdateMode.OnPropertyChanged);
             trkDecimalsSize.DataBindings.Add("Value", this, "DecimalsSize", false, DataSourceUpdateMode.OnPropertyChanged);
@@ -172,6 +180,8 @@ namespace LiveSplit.UI.Components
             DecimalsSize = SettingsHelper.ParseFloat(element["DecimalsSize"], 35f);
             BackgroundColor = SettingsHelper.ParseColor(element["BackgroundColor"], Color.Transparent);
             BackgroundColor2 = SettingsHelper.ParseColor(element["BackgroundColor2"], Color.Transparent);
+            tickColor = SettingsHelper.ParseColor(element["tickColor"], Color.Transparent);
+            backgroundTickColor = SettingsHelper.ParseColor(element["backgroundTickColor"], Color.Transparent);
             GradientString = SettingsHelper.ParseString(element["BackgroundGradient"], DeltasGradientType.Plain.ToString());
             CenterTimer = SettingsHelper.ParseBool(element["CenterTimer"], false);
             TimingMethod = SettingsHelper.ParseString(element["TimingMethod"], "Current Timing Method");
@@ -229,6 +239,8 @@ namespace LiveSplit.UI.Components
             SettingsHelper.CreateSetting(document, parent, "TimerColor", TimerColor) ^
             SettingsHelper.CreateSetting(document, parent, "BackgroundColor", BackgroundColor) ^
             SettingsHelper.CreateSetting(document, parent, "BackgroundColor2", BackgroundColor2) ^
+            SettingsHelper.CreateSetting(document, parent, "tickColor", tickColor) ^
+            SettingsHelper.CreateSetting(document, parent, "backgroundTickColor", backgroundTickColor) ^
             SettingsHelper.CreateSetting(document, parent, "BackgroundGradient", BackgroundGradient) ^
             SettingsHelper.CreateSetting(document, parent, "CenterTimer", CenterTimer) ^
             SettingsHelper.CreateSetting(document, parent, "TimingMethod", TimingMethod) ^
