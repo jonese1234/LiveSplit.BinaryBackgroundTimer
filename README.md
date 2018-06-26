@@ -18,7 +18,7 @@ This Release is the basic initial release version.
 
 ## How to Install
 
-1. Download the LiveSplit.BinaryBackgroundTimer.dll
+1. Download the [LiveSplit.BinaryBackgroundTimer.dll](https://github.com/jonese1234/LiveSplit.BinaryBackgroundTimer/releases/download/v1.0.0/LiveSplit.BinaryBackgroundTimer.dll)
 2. Go To Livesplit Folder
 3. Place the DLL in the Components Folder
 4. Add the timer from the layout settings in livesplit
