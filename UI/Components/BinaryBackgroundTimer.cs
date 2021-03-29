@@ -100,8 +100,7 @@ namespace LiveSplit.UI.Components
 
                 }
             }
-            List<int> test = new List<int>();
-            test = numCalculator(state, timeMethod);
+            var test = numCalculator(state, timeMethod);
 
             var tickBrush = new SolidBrush(tickColor);
             var backgroundTickBrush = new SolidBrush(backgroundTickColor);
@@ -165,16 +164,26 @@ namespace LiveSplit.UI.Components
                 timeValue = state.CurrentTime[TimingMethod.RealTime];
 
 
-            var test = timeValue.Value.Seconds;
-
-            var mill = timeValue.Value.Milliseconds;
+            var mill = Math.Abs(timeValue.Value.Milliseconds);
             var seconds = timeValue.Value.Seconds;
             var mins = timeValue.Value.Minutes;
             var hour = timeValue.Value.Hours;
 
-            int printMil = Math.Abs(mill);
-            while (printMil >= 10)
-                printMil /= 10;
+            int printMil; // Just be extra super careful here
+            if (mill <= 99)
+            {
+                printMil = 0;
+            }
+            else if (mill > 900)
+            {
+                printMil = 9;
+            }
+            else
+            {
+                printMil = mill / 100;
+            }
+            
+            
             int printSecond = Math.Abs(seconds) % 10;
             int printTenSeconds = (seconds < 10) ? 0 : Math.Abs(seconds);
             while (printTenSeconds >= 10)

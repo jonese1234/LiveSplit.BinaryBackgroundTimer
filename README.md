@@ -1,3 +1,7 @@
+# Fork of: LiveSplit.BinaryBackgroundTimer
+
+This fork fixes the issue where milliseconds displayed seems totally random and flashes around a lot when the milliseconds is between 0-100 (when your timer says 1:23:45.000 to 1:23:45.099)
+
 # LiveSplit.BinaryBackgroundTimer
 A Binary Background Timer Like in AGDQ/SGDQ 2018
 
